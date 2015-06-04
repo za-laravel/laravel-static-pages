@@ -16,7 +16,7 @@
 
   "autoload": {
     "psr-4": {
-      "ZaLaravel\\LaravelNavigation\\": "src/ZaLaravel/LaravelStaticPages"
+      "ZaLaravel\\LaravelStaticPages\\": "src/ZaLaravel/LaravelStaticPages"
     }
   },
   "minimum-stability": "dev"

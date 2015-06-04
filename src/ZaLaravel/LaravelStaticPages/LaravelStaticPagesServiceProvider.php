@@ -19,8 +19,8 @@ class LaravelStaticPagesServiceProvider extends ServiceProvider {
         $this->loadViewsFrom(__DIR__ . '/../../views', 'laravel-static-pages');
 
         // Binding
-        $this->app->bind('ZaLaravel\LaravelNavigation\Models\Interfaces\StaticPagesInterface',
-            'ZaLaravel\LaravelNavigation\Models\StaticPage');
+        $this->app->bind('ZaLaravel\LaravelStaticPages\Models\Interfaces\StaticPagesInterface',
+            'ZaLaravel\LaravelStaticPages\Models\StaticPage');
 
         // Migrations
         $this->publishes([
