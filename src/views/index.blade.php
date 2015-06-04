@@ -42,31 +42,31 @@
                         </tr>
                         </thead>
                         <tbody>
-                            @foreach($pages as $page)
-                                <tr>
-                                    <td>{{ $page->title }}</td>
-                                    <td>{{ $page->slug }}</td>
-                                    <td>{{ mb_substr($page->article, 0, 100) . "..." }}</td>
-                                    <td>{{ mb_substr($page->description, 0, 100) . "..." }}</td>
-                                    <td>{{ $page->tags }}</td>
-                                    <td>
-                                        <a href="{{route('admin.page.edit',['id'=>$page->id])}}"
-                                            data-toggle="tooltip"
-                                            data-original-title="Редактитровать"
-                                            class="btn btn-primary"><i class="fa fa-pencil"></i></a>
-                                        {!! Form::open(['route' => ['admin.page.destroy', $page->id],
-                                        'class' => 'form-horizontal confirm',
-                                        'role' => 'form', 'method' => 'DELETE']) !!}
-                                            <button data-toggle="tooltip"
-                                                data-original-title="Удалить"
-                                                type="submit" class="btn btn-danger confirm-btn">
-                                                    <i class="fa fa-trash-o"></i>
-                                            </button>
-                                        {!! Form::close() !!}
-                                    </td>
-                                </tr>
+                        @foreach($pages as $page)
+                            <tr>
+                                <td>{{ $page->title }}</td>
+                                <td>{{ $page->slug }}</td>
+                                <td>{{ mb_substr($page->article, 0, 100) . "..." }}</td>
+                                <td>{{ mb_substr($page->description, 0, 100) . "..." }}</td>
+                                <td>{{ $page->tags }}</td>
+                                <td>
+                                    <a href="{{route('admin.page.edit',['id'=>$page->id])}}"
+                                       data-toggle="tooltip"
+                                       data-original-title="Редактитровать"
+                                       class="btn btn-primary"><i class="fa fa-pencil"></i></a>
+                                    {!! Form::open(['route' => ['admin.page.destroy', $page->id],
+                                    'class' => 'form-horizontal confirm',
+                                    'role' => 'form', 'method' => 'DELETE']) !!}
+                                    <button data-toggle="tooltip"
+                                            data-original-title="Удалить"
+                                            type="submit" class="btn btn-danger confirm-btn">
+                                        <i class="fa fa-trash-o"></i>
+                                    </button>
+                                    {!! Form::close() !!}
+                                </td>
+                            </tr>
 
-                            @endforeach
+                        @endforeach
                         </tbody>
                     </table>
                 </div>

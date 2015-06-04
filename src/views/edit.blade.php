@@ -35,12 +35,12 @@
             });
 
             /* Need to be debugged
-            $('#tags').on('itemAdded', function(event) {
-                lang = $('#lang').val();
-                field = $(this).attr('id');
-                page[lang][field] = $(this).val();
-            });
-            */
+             $('#tags').on('itemAdded', function(event) {
+             lang = $('#lang').val();
+             field = $(this).attr('id');
+             page[lang][field] = $(this).val();
+             });
+             */
         });
     </script>
 @stop
@@ -63,12 +63,13 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12">
+
                             @include('laravel-static-pages::errorBasic')
 
                             {!! Form::model($page, ['route'=>['admin.page.update', $page->id],
-                                'method' => 'PATCH',
-                                'class'=>'form-horizontal', 'role'=>'form', 'id'=>'form-edit', 'data-id' => $page->id]) !!}
-                                @include('laravel-static-pages::_form')
+                            'method' => 'PATCH',
+                            'class'=>'form-horizontal', 'role'=>'form', 'id'=>'form-edit', 'data-id' => $page->id]) !!}
+                            @include('laravel-static-pages::_form')
                             {!! Form::close() !!}
                         </div>
                         <!-- /.col-lg-6 (nested) -->

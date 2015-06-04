@@ -11,5 +11,5 @@
 |
 */
 
-Route::model('staticPages', 'ZaLaravel\LaravelStaticPages\Models\StaticPage');
+Route::model('page', 'ZaLaravel\LaravelStaticPages\Models\StaticPage');
 Route::resource('/admin/page', 'ZaLaravel\LaravelStaticPages\Controllers\AdminStaticPageController');

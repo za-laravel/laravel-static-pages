@@ -2,7 +2,7 @@
 <div class="form-group">
     {!! Form::label('title', '', ["class"=>"col-sm-2 control-label"]) !!}
     <div class="col-sm-9">
-        {!! Form::text('title', '', ["class"=>"form-control",'required']) !!}
+        {!! Form::text('title', $page->title, ["class"=>"form-control",'required']) !!}
     </div>
 </div>
 
@@ -16,15 +16,15 @@
 <div class="form-group">
     {!! Form::label('description', 'Meta description', ["class"=>"col-sm-2 control-label"]) !!}
     <div class="col-sm-9">
-        {!! Form::textarea('description', '', ["class"=>"form-control", "rows" => 5]) !!}
+        {!! Form::textarea('description', $page->description, ["class"=>"form-control", "rows" => 5]) !!}
     </div>
 </div>
 
 <div class="form-group">
     {!! Form::label('tags', 'Meta tags', ["class"=>"col-sm-2 control-label"]) !!}
     <div class="col-sm-9">
-        {!! Form::text('tags', '', ["class"=>"form-control",
-            "placeholder"=>'Meta tags', 'data-role' => "tagsinput"]) !!}
+        {!! Form::text('tags', $page->tags, ["class"=>"form-control",
+        "placeholder"=>'Meta tags', 'data-role' => "tagsinput"]) !!}
     </div>
 </div>
 
@@ -34,7 +34,7 @@
     {!! Form::label('slug', 'Slug', ["class"=>"col-sm-2 control-label"]) !!}
     <div class="col-sm-9">
         {!! Form::text('slug', null, ["class"=>"form-control",
-            "placeholder"=>'Slug','required', 'pattern' => '^[\w\-]+$' ]) !!}
+        "placeholder"=>'Slug','required', 'pattern' => '^[\w\-]+$' ]) !!}
     </div>
 </div>
 

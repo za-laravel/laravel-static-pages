@@ -32,7 +32,8 @@ class AdminStaticPageController extends Controller
      */
     public function create(StaticPagesInterface $page)
     {
-        return view('laravel-static-pages::create', ['action' => 'create', 'page' => $page]);
+        return view('laravel-static-pages::create',
+            ['action' => 'create', 'page' => $page]);
     }
 
     /**
@@ -42,10 +43,11 @@ class AdminStaticPageController extends Controller
      */
     public function store(StaticPagesInterface $page, StaticPageRequest $request)
     {
-        $data = $request->all();
-        $this->persist($page, $data, 'store');
+        $input = $request->all();
+        $page->fill($input);
+        $page->save();
 
-        return redirect()->route('laravel-static-page::index', ['id' => $page->id]);
+        return redirect()->route('admin.page.index');
     }
 
     /**
@@ -75,33 +77,11 @@ class AdminStaticPageController extends Controller
      */
     public function update(StaticPagesInterface $page, StaticPageRequest $request)
     {
-        $data = $request->all();
-        $this->persist($page, $data, 'update');
-
-        return redirect()->route('laravel-static-pages::edit', ['id' => $page->id]);
-    }
-
-    /**
-     * @param StaticPagesInterface $page
-     * @param $data
-     * @param $caller
-     */
-    protected function persist(StaticPagesInterface $page, $data, $caller)
-    {
-        $lang = ('store' === $caller) ? 'ru' : $data['lang'];
-
-        $data[$lang] = [
-            'title' => $data['title'],
-            'article' => $data['article'],
-            'description' => $data['description'],
-            'tags' => $data['tags']
-        ];
-
-        unset($data['title'], $data['article'],
-            $data['description'], $data['tags']);
-
-        $page->fill($data);
+        $input = $request->all();
+        $page->fill($input);
         $page->save();
+
+        return redirect()->route('admin.page.index');
     }
 
     /**
@@ -112,7 +92,7 @@ class AdminStaticPageController extends Controller
     {
         $page->delete();
 
-        return redirect()->route('laravel-static-pages::index');
+        return redirect()->route('admin.page.index');
     }
 
 }

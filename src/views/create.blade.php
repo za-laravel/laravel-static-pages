@@ -36,9 +36,9 @@
                             @include('laravel-static-pages::errorBasic')
 
                             {!! Form::model($page, ['route'=>['admin.page.store'],
-                                'method' => 'POST',
-                                'class'=>'form-horizontal', 'role'=>'form']) !!}
-                                @include('laravel-static-pages::_form')
+                            'method' => 'POST',
+                            'class'=>'form-horizontal', 'role'=>'form']) !!}
+                            @include('laravel-static-pages::_form')
                             {!! Form::close() !!}
                         </div>
                         <!-- /.col-lg-6 (nested) -->
