@@ -5,10 +5,15 @@
 @stop
 
 @section('js')
-    <script src="//cdn.ckeditor.com/4.4.7/standard/ckeditor.js"></script>
+    <script src='//cdn.tinymce.com/4/tinymce.min.js'></script>
     <script type="text/javascript">
         $(document).ready(function(){
-            CKEDITOR.replace( 'editor' );
+             tinymce.init({
+                selector: 'textarea',
+                plugin: 'a_tinymce_plugin',
+                a_plugin_option: true,
+                a_configuration_option: 400
+            });
             $('#tags').tagsinput();
             $('#article, #description').autogrow();
         });
